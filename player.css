@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body {
+    background-color: #9db5ff;
+    color: white;
+    font-family: 'Lilita One', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap */
+}
+
+.player-container {
+    position: relative;
+}
+
+/* Styles for Join and Waiting cards */
+.player-card {
+    background-color: #658bff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.player-card h2 {
+    margin-top: 0;
+}
+
+.player-card input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-family: 'Lilita One', sans-serif;
+}
+
+.player-card button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6eff92;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Lilita One', sans-serif;
+}
+
+.player-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ===== HEADER STYLE REVOLUT ===== */
+.player-header {
+    background: linear-gradient(180deg, #7b9cff 0%, #9db5ff 100%);
+    padding: 20px 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin: -20px -20px 20px -20px; /* Annule le padding du body pour coller aux bords */
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.net-worth {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+.net-worth-trend {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.chart-container {
+    width: 100%;
+    height: 120px; /* Hauteur de la courbe */
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.main-graph {
+    width: 100%;
+    height: 100%;
+}
+
+.header-divider {
+    border: none;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    width: 150px;
+    margin: 10px auto;
+}
+
+.wallet-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: yellow;
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+/* Utilise les mêmes couleurs de tendance que tu as déjà */
+.trend-up { color: #6eff92; }
+.trend-down { color: #ff5757; }
+.trend-eq { color: #e0e0e0; }
+
+
+
+
+
+.actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.action-card {
+    background-color: #658bff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden; /* Prevents content from spilling during animations */
+}
+
+.action-card .action-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.action-card .action-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.action-card .action-value {
+    font-size: 16px;
+}
+
+.action-card .action-total-value {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.action-card .action-tendency {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 16px;
+}
+
+.action-card .action-tendency.up {
+    color: #6eff92;
+}
+
+.action-card .action-tendency.down {
+    color: #ff5757;
+}
+
+.action-card .arrow {
+    margin-left: 5px;
+}
+
+/* Collapsible content is hidden by default */
+.action-details,
+.action-buttons,
+.action-price-reminder {
+    display: none;
+}
+
+/* New styles for the details grid */
+.details-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.details-item .details-label {
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.details-item .details-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* Show collapsible content when the card is expanded */
+.action-card.is-expanded .action-details {
+    display: block;
+}
+
+.action-card.is-expanded .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-card.is-expanded .action-price-reminder {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.action-buttons .button-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-buttons button {
+    background-color: #6eff92;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    flex-grow: 1;
+    margin: 0 2px; /* Reduced margin */
+    font-family: 'Lilita One', sans-serif;
+    transition: transform 0.1s ease, background-color 0.2s ease; /* For feedback */
+}
+
+/* Sell button specific styles */
+.action-buttons button.sell {
+    background-color: #a0a0a0; /* Gray by default */
+}
+
+.action-buttons button.sell.can-sell {
+    background-color: #ff5757; /* Red when sellable */
+}
+
+
+/* Click feedback */
+.action-buttons button:active {
+    transform: scale(0.95);
+}
+
+/* Disabled state for buttons */
+.action-buttons button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+.action-buttons button:first-child {
+    margin-left: 0;
+}
+
+.action-buttons button:last-child {
+    margin-right: 0;
+}
+
+
+/* ===== LEADERBOARD RELATIF ===== */
+.leaderboard-card {
+    max-width: none;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #658bff;
+    color: white;
+    font-family: 'Lilita One', sans-serif;
+    border-radius: 15px;
+}
+
+.lb-header {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.lb-subheader {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.lb-ellipses {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin: 5px 0;
+    color: #e0e0e0;
+}
+
+.lb-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+.lb-rank {
+    width: 60px;
+    text-align: left;
+}
+
+.lb-name {
+    flex-grow: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+}
+
+.lb-name.is-me {
+    color: #6eff92; /* Vert fluo pour repérer le joueur */
+}
+
+.lb-score {
+    width: 90px;
+    text-align: right;
+}
+
+/* Icônes de tendance */
+.trend-up { color: #6eff92; }
+.trend-down { color: #ff5757; }
+.trend-eq { color: #e0e0e0; }
+.crown { color: #ffe600; }

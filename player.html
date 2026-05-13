@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joueur - Le Rat de Wall Street</title>
+    <link rel="stylesheet" href="player.css" />
+  </head>
+  <body>
+    <main class="player-container">
+      <!-- Section to Join Game -->
+      <section id="join-section" class="player-card">
+        <h2>Rejoindre la partie</h2>
+        <input type="text" id="name-input" placeholder="Ton pseudo" />
+        <button id="join-button">Valider</button>
+      </section>
+
+      <!-- Section for Waiting Room -->
+      <section id="waiting-section" class="player-card" style="display: none">
+        <h2>En attente</h2>
+        <p>Ton pseudo a bien été enregistré.</p>
+        <p>La partie n'est pas encore ouverte. Patiente...</p>
+      </section>
+
+      <!-- Main Game Section -->
+      <section id="game-section" style="display: none">
+        <header class="player-header">
+          <div class="player-name" id="player-name-display"></div>
+          <div class="net-worth" id="net-worth-display"></div>
+
+          <div class="net-worth-trend" id="net-worth-trend-display">
+            <span class="trend-eq">= 0€ 0%</span>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="background-graph" class="main-graph"></canvas>
+          </div>
+
+          <hr class="header-divider" />
+          <div class="wallet-label">
+            Wallet <br /><span id="wallet-display"></span>
+          </div>
+        </header>
+
+        <div class="actions-container" id="actions-container">
+          <!-- Action cards will be injected here -->
+        </div>
+        <section id="leaderboard-section" class="player-card leaderboard-card">
+          <div id="leaderboard-container"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Dans ton fichier index.html sur GitHub -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="player.js"></script>
+  </body>
+</html>
