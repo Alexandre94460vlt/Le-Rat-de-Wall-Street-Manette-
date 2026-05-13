@@ -464,3 +464,11 @@ function renderLeaderboard(currentLeaderboard) {
 
   lbContainer.innerHTML = html;
 }
+
+// Écouteur pour la fin de partie et les awards
+socket.on("game:update", (data) => {
+    if (data.endStats) {
+        console.log("🏆 Statistiques de fin reçues :", data.endStats);
+        showEndMenu(data.endStats); // Vous devez créer cette fonction pour afficher votre UI de fin
+    }
+});
