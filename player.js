@@ -1,5 +1,6 @@
 const socket = io("https://le-rat-de-wall-street-server.onrender.com");
 
+console.log("Tentative de connexion au serveur...");
 socket.on("connect", () => {
     console.log("✅ Connecté au serveur Render ! ID:", socket.id);
 });
