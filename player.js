@@ -1,5 +1,13 @@
 const socket = io("https://le-rat-de-wall-street-server.onrender.com");
 
+socket.on("connect", () => {
+    console.log("✅ Connecté au serveur Render ! ID:", socket.id);
+});
+
+socket.on("connect_error", (error) => {
+    console.error("❌ Erreur de connexion au serveur :", error.message);
+});
+
 // --- DOM Elements ---
 const joinSection = document.getElementById("join-section");
 const waitingSection = document.getElementById("waiting-section");
