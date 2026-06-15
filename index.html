@@ -9,8 +9,13 @@
   <body>
     <main class="player-container">
       <!-- Section to Join Game -->
-      <section id="join-section" class="player-card">
+    <section id="join-section" class="player-card">
         <h2>Rejoindre la partie</h2>
+        
+        <div id="room-input-container" style="margin-bottom: 15px;">
+          <input type="text" id="room-manual-input" placeholder="Code Salon (ex: XT4A)" maxlength="4" style="text-transform: uppercase;" />
+        </div>
+
         <input type="text" id="name-input" placeholder="Ton pseudo" />
         <button id="join-button">Valider</button>
       </section>
