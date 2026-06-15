@@ -52,6 +52,7 @@ let currentPlayerCash = 0;
 let previousLeaderboard = []; 
 
 // --- State Management Functions ---
+// --- State Management Functions ---
 function showState(state) {
   joinSection.style.display = "none";
   waitingSection.style.display = "none";
@@ -59,11 +60,12 @@ function showState(state) {
 
   if (state === "join") {
     joinSection.style.display = "block";
-    // Si la room est déjà dans l'URL, on masque le champ manuel pour simplifier l'UI
+    
+    // Si la room est dans l'URL, on cache l'input du code. Sinon, on l'affiche !
     if (roomId) {
-        roomInputContainer.style.display = "none";
+        roomManualInput.style.display = "none";
     } else {
-        roomInputContainer.style.display = "block";
+        roomManualInput.style.display = "block";
     }
   } 
   else if (state === "waiting") waitingSection.style.display = "block";
