@@ -1,5 +1,5 @@
 // 1. ADRESSE DE TON NOUVEAU SERVEUR MULTISESSION
-const SERVER_URL = "https://le-rat-de-wall-street-server-q2o3.onrender.com";
+const SERVER_URL = "https://le-rat-de-wall-street-server-ko13.onrender.com";
 const socket = io(SERVER_URL);
 
 // 2. INTERCEPTION DU CODE DE LA ROOM DANS L'URL
